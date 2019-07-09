@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Lee&#39;s blogs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Lee&#39;s blogs">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="Lee&#39;s blogs">
+<meta property="og:locale" content="default">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Lee&#39;s blogs">
+  
+    <link rel="alternate" href="/atom.xml" title="Lee&#39;s blogs" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Lee&#39;s blogs</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-快乐暑假第一天" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/07/08/快乐暑假第一天/" class="article-date">
+  <time datetime="2019-07-08T10:51:01.000Z" itemprop="datePublished">2019-07-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/08/快乐暑假第一天/">快乐暑假第一天</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>快乐的暑假开始了！！！今天主要学习了git相关的一些东西，以及搭建了自己的博客，虽然在我出色的操作下，遇到了各种各样的奇葩问题</p>
+</blockquote>
+<h1 id="一、-git相关操作"><a href="#一、-git相关操作" class="headerlink" title="一、 git相关操作"></a>一、 git相关操作</h1><blockquote>
+<p>在多人协作完成一个项目的情况下，如果只靠将文件传来传去这种老方法是十分麻烦的，而且人一多就极其容易发生各种各样的错误。因此在多人协作时，需要依靠git这种卓越的工具</p>
+</blockquote>
+<ol>
+<li><p><strong>将远程库的内容克隆到本地</strong><br></p>
+<p> 使用命令 <strong>git clone</strong> ，后跟从GitHub复制来的地址</p>
+</li>
+<li><p><strong>创建自己的分支</strong></p>
+<blockquote>
+<p>为了避免各种各样的错误，应该创建自己的分支，并在自己的分支里进行各种各样的修改和操作</p>
+</blockquote>
+<p> 使用命令 <strong>git checkout -b</strong> ,后跟自己分支的名字，此时<strong>head</strong>的指向从<strong>master</strong>变成自己创建的分支</p>
+</li>
+<li><p><strong>将修改后的文件添加到暂存区</strong></p>
+<blockquote>
+<p>文件修改后需要先 add 到暂存区，否则无法 commit 到 master 上，可以 add 多个文件之后再 commit</p>
+</blockquote>
+<p> 使用命令 <strong>git add</strong> ，后跟要添加的文件名或者”.”(表示所有文件)</p>
+</li>
+<li><p><strong>将暂存区中的文件提交到分支上</strong></p>
+<p> 使用命令 <strong>git commit -m “注释”</strong></p>
+</li>
+<li><p><strong>抓取远程库的文件资源</strong></p>
+<blockquote>
+<p>自己修改完文件后，可能团队的其他人在此期间内也修改了文件并且已经提交到远程库上，因此在将本地分支推送到远程库之前，为了更新资源避免错误，需要将远程库上的资源抓取到本地</p>
+</blockquote>
+<p> 使用命令 <strong>git pull</strong></p>
+</li>
+<li><p><strong>合并分支</strong></p>
+<p> 先使用 <strong>git checkout master</strong> 让 head 指向 master 分支，然后使用 <strong>git merge <name></name></strong> 来合并分支</p>
+</li>
+<li><p><strong>将本地分支推送到远程库中</strong>、</p>
+<blockquote>
+<p>本地分支他人是不可见的，因此需要将本地分支推送到远程库中</p>
+</blockquote>
+<p> 使用命令 <strong>git push</strong></p>
+</li>
+</ol>
+<h1 id="二、-hexo博客"><a href="#二、-hexo博客" class="headerlink" title="二、 hexo博客"></a>二、 hexo博客</h1><ul>
+<li><strong>hexo n “title”</strong> :创建一篇标题为 title 的博客</li>
+<li><strong>hexo g</strong> :生成静态文章</li>
+<li><strong>hexo s</strong> :启动本地服务器，用于预览主题</li>
+<li><strong>hexo d</strong> :自动生成网站静态文件，并部署到设定的仓库</li>
+</ul>
+<h1 id="三、-小结"><a href="#三、-小结" class="headerlink" title="三、 小结"></a>三、 小结</h1><ul>
+<li>今天是培训第一天，我格外适应这种一坐几个小时都不用动的生活</li>
+<li>今天了解了git的一些基本操作，但还不是很熟练，还需要多练习几次</li>
+<li>今天开始贯彻落实每天运动的基本方针，强身健体，提神醒脑</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/07/08/快乐暑假第一天/" data-id="cjxv4s2ke0001sguw456w5nyy" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-的" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/07/08/的/" class="article-date">
+  <time datetime="2019-07-08T09:45:35.000Z" itemprop="datePublished">2019-07-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/08/的/">的</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>12121212</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/07/08/的/" data-id="cjxv4s2kh0002sguwma4ukf3v" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/07/08/hello-world/" class="article-date">
+  <time datetime="2019-07-08T09:42:59.273Z" itemprop="datePublished">2019-07-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/08/hello-world/">Hello World</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/07/08/hello-world/" data-id="cjxv4s2ka0000sguwhwmdmj47" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/07/08/快乐暑假第一天/">快乐暑假第一天</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/08/的/">的</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/08/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Lee<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
