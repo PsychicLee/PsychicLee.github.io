@@ -62,6 +62,148 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-快乐暑假第四天" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/07/11/快乐暑假第四天/" class="article-date">
+  <time datetime="2019-07-11T13:16:02.000Z" itemprop="datePublished">2019-07-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/11/快乐暑假第四天/">快乐暑假第四天</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <div style="font-size: 24px;color: blue;font-weight:bold;margin-top:30px">今日小结</div>
+<p style="font-size:18px;text-align:left;text-indent:2em">
+进入第六章的学习，感觉有一点绕，原型对象、构造对象、实例之间的关系以及联系它们的一些方法。但花点时间理解一下之后也渐渐地有一点概念了。
+</p>
+
+<p style="font-size:18px;text-align:left;text-indent:2em">
+接下来强行总结一波：我早上吃了超市买的4块钱三明治和一瓶蒙牛纯牛奶，中午吃了一盘不知道叫什么的菜和一碗白米饭，晚上吃的是豆角和豆腐。
+</p>
+<p style="font-size:18px;text-align:left;text-indent:2em">
+ps：今天没抽卡。
+</p>
+
+<div style="font-size: 24px;color: blue;font-weight:bold;margin-top:30px">笔记部分</div>
+
+<h1 id="5-面向对象的程序设计"><a href="#5-面向对象的程序设计" class="headerlink" title="5. 面向对象的程序设计"></a>5. 面向对象的程序设计</h1><p>对象的定义为：无序属性的集合，其属性可以包含基本值、对象或函数。</p>
+<h2 id="理解对象"><a href="#理解对象" class="headerlink" title="理解对象"></a>理解对象</h2><h4 id="属性类型"><a href="#属性类型" class="headerlink" title="属性类型"></a>属性类型</h4><p>ECMAScript 中有两种属性：</p>
+<ul>
+<li><p>数据属性：包含一个数据值的位置，在这个位置可以读取和写入值。</p>
+<ul>
+<li><p>数据属性有4个描述其行为的特性：</p>
+<ol>
+<li>[[Configurable]]:表示能否通过 delete 删除属性从而重新定义属性,能否修改属性的特性,或者能否把属性修改为访问器属性。(直接在对象上定义的属性,这个特性默认值为true)</li>
+<li>[[Enumerable]]:表示能否通过 fot-in 循环返回属性。(直接在对象上定义的属性,这个特性默认值为true)</li>
+<li>[[Writable]]:表示能否修改属性的值。(直接在对象上定义的属性,这个特性默认值为true)</li>
+<li>[[Value]]:包含这个属性的数据值。读取属性的时候，从这个位置读；写入属性的时候，把新值保存在这个位置。(这个特性的默认值为undefined)</li>
+</ol>
+</li>
+<li><p>修改属性默认特性必须使用 Object.defineProperty( ) 方法，该方法接收三个参数：属性所在的对象、属性的名字和一个描述符对象，其中描述符对象的属性必须是：configurable、enumerable、writable、value。</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123; &#125;;</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(person, <span class="string">"name"</span>, &#123;</span><br><span class="line">    writable: <span class="literal">false</span>,</span><br><span class="line">    value: <span class="string">"Nicholas"</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">alert(person.name);     <span class="comment">// "Nicholas"</span></span><br><span class="line">person.name = <span class="string">"Greg"</span>;</span><br><span class="line">alert(person.name);     <span class="comment">// "Nicholas"</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>一旦把属性定义为不可配置的(configurable: false)，就不能再把它变回可配置了，此时再调用Object.defineProperty( )方法修改除writable之外的特性都会导致错误。</li>
+<li>在调用该方法创建新属性时，如果不指定，configurable、enumerable、writable特性的默认值都是false；如果只是修改已定义的属性的特性则无此限制。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>访问器属性：不包含数据值，包含一对getter和setter函数(但这两个函数都不是必需的)。</p>
+<ul>
+<li><p>访问器属性有4个特性：</p>
+<ol>
+<li>[[Configurable]]:表示能否通过 delete 删除属性从而重新定义属性,能否修改属性的特<br>性,或者能否把属性修改为数据属性。(直接在对象上定义的属性,这个特性默认值为true)</li>
+<li>[[Enumerable]]:表示能否通过 fot-in 循环返回属性。(直接在对象上定义的属性,这个特性默认值为true)</li>
+<li>[[Get]]：读取属性时调用的函数。(默认值为undefined)</li>
+<li>[[Set]]：写入属性时调用的函数。(默认值为undefined)</li>
+</ol>
+</li>
+<li><p>访问器属性不能直接定义，必须使用Object.defineProperty( )来定义。</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> book = &#123;</span><br><span class="line">    _year: <span class="number">2004</span>,</span><br><span class="line">    edition: <span class="number">1</span></span><br><span class="line">&#125;;</span><br><span class="line">  </span><br><span class="line"><span class="built_in">Object</span>.defineProperty(book, <span class="string">"year"</span>, &#123;</span><br><span class="line">    <span class="keyword">get</span>: function()&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>._year;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="keyword">set</span>: function(newValue)&#123;</span><br><span class="line">    </span><br><span class="line">        <span class="keyword">if</span> (newValue &gt; <span class="number">2004</span>) &#123;</span><br><span class="line">            <span class="keyword">this</span>._year = newValue;</span><br><span class="line">            <span class="keyword">this</span>.edition += newValue - <span class="number">2004</span>;</span><br><span class="line">        </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">book.year = <span class="number">2005</span>;</span><br><span class="line">alert(book.edition);   <span class="comment">//2</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>_year 前面的下划线是一种常用的记号，用于表示只能通过对象方法访问的属性。将year属性修改为2005会导致 _year 变成2005，而 edition 变为2。</li>
+<li>这是使用访问器属性的常见方式，即设置一个属性的值会导致其他属性发生变化。</li>
+</ul>
+</li>
+<li><p>只指定getter意味着属性是不能写，尝试写入属性会被忽略；只指定setter函数的属性不能读，否则会返回undefined。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="定义多个属性"><a href="#定义多个属性" class="headerlink" title="定义多个属性"></a>定义多个属性</h4><p>利用Object.defineProperties( )方法可以通过描述符一次定义多个属性。</p>
+<p>该方法接收两个对象参数：第一个对象是要添加和修改其属性的对象，第二个对象的属性与第一个对象中要添加或修改的属性一一对应。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> book = &#123;&#125;;</span><br><span class="line">    </span><br><span class="line"><span class="built_in">Object</span>.defineProperties(book, &#123;</span><br><span class="line">    _year: &#123;</span><br><span class="line">    value: <span class="number">2004</span></span><br><span class="line">    &#125;,</span><br><span class="line">    </span><br><span class="line">    edition: &#123;</span><br><span class="line">        value: <span class="number">1</span></span><br><span class="line">    &#125;,</span><br><span class="line">    </span><br><span class="line">    year: &#123;            </span><br><span class="line">        <span class="keyword">get</span>: function()&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>._year;</span><br><span class="line">        &#125;,</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">set</span>: function(newValue)&#123;</span><br><span class="line">            <span class="keyword">if</span> (newValue &gt; <span class="number">2004</span>) &#123;</span><br><span class="line">                <span class="keyword">this</span>._year = newValue;</span><br><span class="line">                <span class="keyword">this</span>.edition += newValue - <span class="number">2004</span>;</span><br><span class="line">            &#125;                  </span><br><span class="line">        &#125;            </span><br><span class="line">    &#125;        </span><br><span class="line">&#125;);</span><br><span class="line">   </span><br><span class="line">book.year = <span class="number">2005</span>;</span><br><span class="line">alert(book.edition);   <span class="comment">//2</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="读取属性的特性"><a href="#读取属性的特性" class="headerlink" title="读取属性的特性"></a>读取属性的特性</h4><p>Object.getOwnPropertyDescriptor( )方法可以取得给定属性的<strong>描述符</strong>。</p>
+<p>该方法接收两个参数：属性所在的对象和要读取其描述符的属性名称。</p>
+<p><strong>返回值是一个对象</strong>：</p>
+<ul>
+<li>若是访问器属性，则这个对象的属性有configurable、enumerable、get、set</li>
+<li>若是数据属性，则这个对象的属性有configurable、enumerable、writable、value</li>
+</ul>
+<h2 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h2><p>使用Object构造函数或对象字面量来创建很多对象时会产生大量重复的代码。</p>
+<h4 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h4><p>用函数来封装以特定接口创建对象的细节：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createPerson</span>(<span class="params">name, age, job</span>)</span>&#123;</span><br><span class="line">            <span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">            o.name = name;</span><br><span class="line">            o.age = age;</span><br><span class="line">            o.job = job;</span><br><span class="line">            o.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">                alert(<span class="keyword">this</span>.name);</span><br><span class="line">            &#125;;    </span><br><span class="line">            <span class="keyword">return</span> o;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">var</span> person1 = createPerson(<span class="string">"Nicholas"</span>, <span class="number">29</span>, <span class="string">"Software Engineer"</span>);</span><br><span class="line">        <span class="keyword">var</span> person2 = createPerson(<span class="string">"Greg"</span>, <span class="number">27</span>, <span class="string">"Doctor"</span>);</span><br><span class="line">        </span><br><span class="line">        person1.sayName();   <span class="comment">//"Nicholas"</span></span><br><span class="line">        person2.sayName();   <span class="comment">//"Greg"</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="构造函数模式"><a href="#构造函数模式" class="headerlink" title="构造函数模式"></a>构造函数模式</h4><p>可以创建自定义的构造函数，从而定义自定义对象类型的属性和方法。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age, job</span>)</span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.name = name;</span><br><span class="line">            <span class="keyword">this</span>.age = age;</span><br><span class="line">            <span class="keyword">this</span>.job = job;</span><br><span class="line">            <span class="keyword">this</span>.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">                alert(<span class="keyword">this</span>.name);</span><br><span class="line">            &#125;;    </span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">var</span> person1 = <span class="keyword">new</span> Person(<span class="string">"Nicholas"</span>, <span class="number">29</span>, <span class="string">"Software Engineer"</span>);</span><br><span class="line">        <span class="keyword">var</span> person2 = <span class="keyword">new</span> Person(<span class="string">"Greg"</span>, <span class="number">27</span>, <span class="string">"Doctor"</span>);</span><br></pre></td></tr></table></figure>
+
+<p>用new操作符调用构造函数会经过以下4个步骤：</p>
+<ol>
+<li>创建一个新对象</li>
+<li>将构造函数的作用域赋给新对象(因此this就指向了这个新对象)</li>
+<li>执行构造函数中的代码(为这个新对象添加属性)</li>
+<li>返回新对象<br>返回的对象都有一个constructor(构造函数)属性，该属性指向对应的构造函数。</li>
+</ol>
+<h5 id="将构造函数当作函数"><a href="#将构造函数当作函数" class="headerlink" title="将构造函数当作函数"></a>将构造函数当作函数</h5><p>任何函数，只要通过new操作符来调用，就可以作为构造函数；任何函数，如果不通过new操作符来调用，就是普通函数。</p>
+<h5 id="构造函数的问题"><a href="#构造函数的问题" class="headerlink" title="构造函数的问题"></a>构造函数的问题</h5><p>不同实例上的同名函数是不相等的，因此会创建许多相同的Function实例。</p>
+<p>由于this对象的存在，可以将函数的定义转移到构造函数外部。</p>
+<h4 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a>原型模式</h4><p>创建的每个函数都有一个prototype(原型)属性，这个属性是一个指针，指向一个对象，这个对象的用途是包含可以由特定类型的所有实例共享的属性和方法。</p>
+<h5 id="原型对象的性质"><a href="#原型对象的性质" class="headerlink" title="原型对象的性质"></a>原型对象的性质</h5><p>创建了自定义的构造函数之后，其原型对象默认只会取得constructor属性(可以自定义添加)，其他方法则都是从Object继承而来的。</p>
+<p>调用构造函数创建一个新的实例后，该实例内部包含一个指针(内部指针)叫[[Prototype]]，这个连接存在于实例和构造函数的原型对象之间(实例与构造函数之间没有直接的关系)。</p>
+<p>虽然无法访问到[[Prototype]]，但可以通过 isPrototpyeOf( ) 方法来确定对象之间是否存在这种关系。如果[[Prototype]]指向调用该方法的对象，则会返回true。</p>
+<p><strong>Object.getPrototypeOf( )方法</strong>可以用来取得[[Prototype]]的值(即指向的原型对象)。</p>
+<p>当代码读取某个对象的某个属性时，会先从对象实例本身开始搜索给定名字的属性，如果没找到，则继续搜索指针指向的原型对象，若搜索到了这个属性，则返回该属性的值。(多个对象实例共享原型所保存的属性和方法的基本原理)<br><br>可以通过对象实例访问保存在原型中的值，但<strong>不能改写</strong>。如果在实例中添加的新属性与实例原型中的属性同名，则新属性会屏蔽原型中的那个属性。</p>
+<p>delete操作符可以完全删除实例属性，从而让我们能够重新访问原型中的属性。</p>
+<p>hasOwnProperty( )方法可以检测一个属性是存在于实例中还是存在于原型中。当给定属性存在于实例中时，返回true。</p>
+<h5 id="原型与-in-操作符"><a href="#原型与-in-操作符" class="headerlink" title="原型与 in 操作符"></a>原型与 in 操作符</h5><p>有两种方式使用 in 操作符：<br>    - 单独使用：会在通过对象能够访问给定的属性时返回 true ，无论该属性存在于实例中还是原型中。<br>    - 在 for-in 循环中使用：返回的是所有能够通过对象访问的、可枚举的(enumerable)属性，包括存在于实例中和原型中的属性。屏蔽了原型中不可枚举属性(即[[enumerable]]标记为false)的实例属性也会返回。</p>
+<p>Object.keys( ) 方法能取得对象上所有可枚举的实例属性，接收一个对象作为参数，返回一个包含所有可枚举属性的字符串数组。</p>
+<p>Object.keys( ) 和 Object.getOwnPropertyNames( ) 方法都可以用来替代 for-in 循环。</p>
+<h5 id="更简单的原型语法"><a href="#更简单的原型语法" class="headerlink" title="更简单的原型语法"></a>更简单的原型语法</h5><p>用一个包含所有属性和方法的对象字面量来重写整个原型对象。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line">Person.prototype = &#123;</span><br><span class="line">    name : <span class="string">"Nicholas"</span>,</span><br><span class="line">    age : <span class="number">29</span>,</span><br><span class="line">    job: <span class="string">"Software Engineer"</span>,</span><br><span class="line">    sayName : <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        alert(<span class="keyword">this</span>.name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> friend = <span class="keyword">new</span> Person();</span><br><span class="line">    </span><br><span class="line">alert(friend <span class="keyword">instanceof</span> <span class="built_in">Object</span>);  <span class="comment">//true</span></span><br><span class="line">alert(friend <span class="keyword">instanceof</span> Person);  <span class="comment">//true</span></span><br><span class="line">alert(friend.constructor == Person);  <span class="comment">//false</span></span><br><span class="line">alert(friend.constructor == <span class="built_in">Object</span>);  <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>此时用constructor属性不再指向Person，而是指向Object。</li>
+<li></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/07/11/快乐暑假第四天/" data-id="cjxyp4fcy000134uw3xil4d9z" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-快乐暑假第三天" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/07/10/快乐暑假第三天/" class="article-date">
@@ -424,7 +566,7 @@ JavaScript 中有许多操作都会隐式地转换数据类型，最常见的就
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/10/快乐暑假第三天/" data-id="cjxx2vs9i0004touwmc03xc80" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/10/快乐暑假第三天/" data-id="cjxyp4fdf000534uwj74f2dz7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -627,7 +769,7 @@ JavaScript 中有许多操作都会隐式地转换数据类型，最常见的就
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/09/快乐暑假第二天/" data-id="cjxx2vs9e0003touw3tmx66xy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/09/快乐暑假第二天/" data-id="cjxyp4fd5000434uw9qyti1h6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -715,7 +857,7 @@ JavaScript 中有许多操作都会隐式地转换数据类型，最常见的就
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/08/快乐暑假第一天/" data-id="cjxx2vs940001touwuewmumxx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/08/快乐暑假第一天/" data-id="cjxyp4fd3000234uwnz8pechl" class="article-share-link">Share</a>
       
       
     </footer>
@@ -752,7 +894,7 @@ JavaScript 中有许多操作都会隐式地转换数据类型，最常见的就
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/08/的/" data-id="cjxx2vs970002touwlyo78bld" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/08/的/" data-id="cjxyp4fd4000334uwwr8ough0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -801,7 +943,7 @@ JavaScript 中有许多操作都会隐式地转换数据类型，最常见的就
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/08/hello-world/" data-id="cjxx2vs8t0000touwhtu1i7kp" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/08/hello-world/" data-id="cjxyp4fct000034uwa4bhqlp0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -842,6 +984,10 @@ JavaScript 中有许多操作都会隐式地转换数据类型，最常见的就
       <ul>
         
           <li>
+            <a href="/2019/07/11/快乐暑假第四天/">快乐暑假第四天</a>
+          </li>
+        
+          <li>
             <a href="/2019/07/10/快乐暑假第三天/">快乐暑假第三天</a>
           </li>
         
@@ -855,10 +1001,6 @@ JavaScript 中有许多操作都会隐式地转换数据类型，最常见的就
         
           <li>
             <a href="/2019/07/08/的/">的</a>
-          </li>
-        
-          <li>
-            <a href="/2019/07/08/hello-world/">Hello World</a>
           </li>
         
       </ul>
