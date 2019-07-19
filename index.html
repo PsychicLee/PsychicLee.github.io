@@ -62,6 +62,155 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-快乐暑假第十一天" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/07/19/快乐暑假第十一天/" class="article-date">
+  <time datetime="2019-07-19T14:02:19.000Z" itemprop="datePublished">2019-07-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/19/快乐暑假第十一天/">快乐暑假第十一天</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <div style="font-size: 24px;color: blue;font-weight:bold;margin-top:30px">今日小结</div>
+<p style="font-size:18px;text-align:left;text-indent:2em">
+
+</p>
+<p style="font-size:18px;text-align:left;text-indent:2em">
+
+</p>
+<p style="font-size:18px;text-align:left;text-indent:2em">
+
+</p>
+<p style="font-size:18px;text-align:left;text-indent:2em">
+
+</p>
+<div style="font-size: 24px;color: blue;font-weight:bold;margin-top:30px">笔记部分</div>
+
+<h1 id="3-字符串的扩展"><a href="#3-字符串的扩展" class="headerlink" title="3. 字符串的扩展"></a>3. 字符串的扩展</h1><h2 id="3-1-模板字符串"><a href="#3-1-模板字符串" class="headerlink" title="3.1 模板字符串"></a>3.1 模板字符串</h2><p>模板字符串是增强版的字符串，用反引号（`）标识。它可以当作普通字符串使用，也可以用来定义多行字符串，或者在字符串中嵌入变量。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 普通字符串</span></span><br><span class="line"><span class="string">`In JavaScript '\n' is a line-feed.`</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 多行字符串</span></span><br><span class="line"><span class="string">`In JavaScript this is</span></span><br><span class="line"><span class="string"> not legal.`</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`string text line 1</span></span><br><span class="line"><span class="string">string text line 2`</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 字符串中嵌入变量</span></span><br><span class="line"><span class="keyword">let</span> name = <span class="string">"Bob"</span>, time = <span class="string">"today"</span>;</span><br><span class="line"><span class="string">`Hello <span class="subst">$&#123;name&#125;</span>, how are you <span class="subst">$&#123;time&#125;</span>?`</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>如果在模板字符串中需要使用反引号，则前面要用反斜杠转义</li>
+<li>如果使用模板字符串表示多行字符串，所有的空格和缩进都会被保留在输出之中<ul>
+<li>如果不需要换行，可以使用trim方法消除它</li>
+</ul>
+</li>
+<li>模板字符串中嵌入变量，需要将变量名写在${}之中<ul>
+<li>大括号内部可以放入任意的 JavaScript 表达式，可以进行运算，以及引用对象属性</li>
+<li>还能调用函数，如果大括号中的值不是字符串，将按照一般的规则转为字符串</li>
+<li>如果模板字符串中的变量没有声明，将报错</li>
+<li>实际上模板字符串的大括号内部，就是执行 JavaScript 代码，因此如果大括号内部是一个字符串，将会原样输出</li>
+</ul>
+</li>
+<li>模板字符串还能嵌套</li>
+<li>如果需要引用模板字符串本身，在需要时执行，可以写成函数。</li>
+</ul>
+<h1 id="4-函数的扩展"><a href="#4-函数的扩展" class="headerlink" title="4. 函数的扩展"></a>4. 函数的扩展</h1><h2 id="4-1-箭头函数"><a href="#4-1-箭头函数" class="headerlink" title="4.1 箭头函数"></a>4.1 箭头函数</h2><p>ES6 允许使用“箭头”（=&gt;）定义函数。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> f = <span class="function"><span class="params">v</span> =&gt;</span> v;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span> (<span class="params">v</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> v;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>如果箭头函数不需要参数或需要多个参数，就使用一个<strong>圆括号代表参数部分</strong></li>
+<li>如果箭头函数的代码块部分多于一条语句，就要使用大括号将它们括起来，并且<strong>使用return语句返回</strong></li>
+<li>由于大括号被解释为代码块，所以如果箭头函数直接<strong>返回一个对象，必须在对象外面加上括号</strong>，否则会报错</li>
+<li>箭头函数可以与变量解构结合使用：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> full = <span class="function">(<span class="params">&#123; first, last &#125;</span>) =&gt;</span> first + <span class="string">' '</span> + last;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">full</span>(<span class="params">person</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> person.first + <span class="string">' '</span> + person.last;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>箭头函数的一个用处是简化回调函数：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 正常函数写法</span></span><br><span class="line"><span class="keyword">var</span> result = values.sort(<span class="function"><span class="keyword">function</span> (<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> a - b;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 箭头函数写法</span></span><br><span class="line"><span class="keyword">var</span> result = values.sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a - b);</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用注意点"><a href="#使用注意点" class="headerlink" title="使用注意点"></a>使用注意点</h3><ol>
+<li>函数体内的<strong>this对象，就是定义时所在的对象</strong>，而不是使用时所在的对象。</li>
+<li><strong>不可以当作构造函数</strong>，也就是说，不可以使用new命令，否则会抛出一个错误。</li>
+<li><strong>不可以使用arguments对象</strong>，该对象在函数体内不存在。如果要用，可以用 rest 参数代替。</li>
+<li><strong>不可以使用yield命令</strong>，因此箭头函数不能用作 Generator 函数。</li>
+</ol>
+<p>箭头函数可以让this指向固定化，这种特性很有利于封装回调函数。下面是一个例子，DOM 事件的回调函数封装在一个对象里面:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> handler = &#123;</span><br><span class="line">  id: <span class="string">'123456'</span>,</span><br><span class="line"></span><br><span class="line">  init: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">document</span>.addEventListener(<span class="string">'click'</span>,</span><br><span class="line">      event =&gt; <span class="keyword">this</span>.doSomething(event.type), <span class="literal">false</span>);</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  doSomething: <span class="function"><span class="keyword">function</span>(<span class="params">type</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Handling '</span> + type  + <span class="string">' for '</span> + <span class="keyword">this</span>.id);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>上面代码的init方法中，使用了箭头函数，这导致这个箭头函数里面的this，总是指向handler对象。否则，回调函数运行时，this.doSomething这一行会报错，因为此时this指向document对象。</li>
+</ul>
+<p>this指向的固定化，并不是因为箭头函数内部有绑定this的机制，实际原因是<strong>箭头函数根本没有自己的this，导致内部的this就是外层代码块的this</strong>。正是因为它没有this，所以也就<strong>不能用作构造函数</strong>。</p>
+<h3 id="不适用场合"><a href="#不适用场合" class="headerlink" title="不适用场合"></a>不适用场合</h3><p>由于箭头函数使得this从“动态”变成“静态”，下面两个场合不应该使用箭头函数：</p>
+<ol>
+<li>定义对象的方法，且该方法内部包括this</li>
+<li>需要动态this的时候，也不应使用箭头函数</li>
+</ol>
+<h3 id="嵌套的箭头函数"><a href="#嵌套的箭头函数" class="headerlink" title="嵌套的箭头函数"></a>嵌套的箭头函数</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">insert</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;<span class="attr">into</span>: <span class="function"><span class="keyword">function</span> (<span class="params">array</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;<span class="attr">after</span>: <span class="function"><span class="keyword">function</span> (<span class="params">afterValue</span>) </span>&#123;</span><br><span class="line">      array.splice(array.indexOf(afterValue) + <span class="number">1</span>, <span class="number">0</span>, value);</span><br><span class="line">      <span class="keyword">return</span> array;</span><br><span class="line">    &#125;&#125;;</span><br><span class="line">  &#125;&#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">insert(<span class="number">2</span>).into([<span class="number">1</span>, <span class="number">3</span>]).after(<span class="number">1</span>); <span class="comment">//[1, 2, 3]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//上面这个函数，可以使用箭头函数改写。</span></span><br><span class="line"><span class="keyword">let</span> insert = <span class="function">(<span class="params">value</span>) =&gt;</span> <span class="function">(<span class="params">&#123;into: (array</span>) =&gt;</span> <span class="function">(<span class="params">&#123;after: (afterValue</span>) =&gt;</span> &#123;</span><br><span class="line">  array.splice(array.indexOf(afterValue) + <span class="number">1</span>, <span class="number">0</span>, value);</span><br><span class="line">  <span class="keyword">return</span> array;</span><br><span class="line">&#125;&#125;)&#125;);</span><br><span class="line"></span><br><span class="line">insert(<span class="number">2</span>).into([<span class="number">1</span>, <span class="number">3</span>]).after(<span class="number">1</span>); <span class="comment">//[1, 2, 3]</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="4-2-rest-参数"><a href="#4-2-rest-参数" class="headerlink" title="4.2 rest 参数"></a>4.2 rest 参数</h2><p>ES6 引入 rest 参数（形式为…变量名），用于获取函数的多余参数，这样就不需要使用arguments对象了。</p>
+<ul>
+<li>rest 参数搭配的变量是一个数组，该变量<strong>将多余的参数放入数组中</strong>。</li>
+<li>arguments对象不是数组，而是一个类似数组的对象，所以为了使用数组的方法，必须使用Array.prototype.slice.call先将其转为数组。<strong>rest 参数是一个真正的数组，数组特有的方法都可以使用</strong>。</li>
+<li>rest 参数之后不能再有其他参数（即<strong>只能是最后一个参数</strong>），否则会报错。</li>
+<li><strong>函数的length属性，不包括 rest 参数</strong>。</li>
+</ul>
+<h2 id="4-3-数组实例的-includes"><a href="#4-3-数组实例的-includes" class="headerlink" title="4.3 数组实例的 includes( )"></a>4.3 数组实例的 includes( )</h2><p>Array.prototype.includes方法返回一个布尔值，表示某个数组是否包含给定的值，与字符串的includes方法类似。</p>
+<h1 id="5-数组的扩展"><a href="#5-数组的扩展" class="headerlink" title="5. 数组的扩展"></a>5. 数组的扩展</h1><h2 id="5-1-扩展运算符"><a href="#5-1-扩展运算符" class="headerlink" title="5.1 扩展运算符"></a>5.1 扩展运算符</h2><p>扩展运算符是三个点（…）。它好比 rest 参数的逆运算，将一个数组转为用逗号分隔的参数序列。</p>
+<ul>
+<li>扩展运算符与正常的函数参数可以结合使用</li>
+<li>扩展运算符后面还可以放置表达式</li>
+<li>如果扩展运算符后面是一个空数组，则不产生任何效果</li>
+<li>只有函数调用时，扩展运算符才可以放在圆括号中，否则会报错</li>
+</ul>
+<h1 id="6-Symbol"><a href="#6-Symbol" class="headerlink" title="6. Symbol"></a>6. Symbol</h1><p>ES6 引入了一种新的原始数据类型Symbol，表示独一无二的值，它是 JavaScript 语言的第七种数据类型。</p>
+<ul>
+<li>Symbol函数前不能使用new命令，因为生成的 Symbol 是一个原始类型的值，不是对象。它是一种类似于字符串的数据类型。</li>
+<li>Symbol函数可以接受一个字符串作为参数，表示对 Symbol 实例的描述。<ul>
+<li>如果 Symbol 的参数是一个对象，就会调用该对象的toString方法，将其转为字符串，然后才生成一个 Symbol 值。</li>
+<li>相同参数的Symbol函数的返回值是不相等的。</li>
+</ul>
+</li>
+<li>Symbol 值不能与其他类型的值进行运算。</li>
+<li>Symbol 值可以显式转为字符串。</li>
+<li>Symbol 值也可以转为布尔值，但是不能转为数值。</li>
+</ul>
+<h1 id="7-Set-和-Map-数据结构"><a href="#7-Set-和-Map-数据结构" class="headerlink" title="7. Set 和 Map 数据结构"></a>7. Set 和 Map 数据结构</h1><h2 id="7-1-Set"><a href="#7-1-Set" class="headerlink" title="7.1 Set"></a>7.1 Set</h2><p>ES6 提供了新的数据结构 Set。它类似于数组，但是<strong>成员的值都是唯一的</strong>，没有重复的值。</p>
+<ul>
+<li>Set本身是一个<strong>构造函数</strong>，用来生成 Set 数据结构。</li>
+<li>Set函数可以接受一个数组（或者具有 iterable 接口的其他数据结构）作为参数，用来初始化。(会<strong>去除重复成员</strong>)</li>
+<li>向 Set 加入值的时候，<strong>不会发生类型转换</strong>。内部判断两个值是否不同的算法类似于精确相等运算符（===），主要的区别是向 Set 加入值时<strong>认为NaN等于自身</strong>，另外，<strong>两个对象总是不相等的</strong>。</li>
+</ul>
+<h3 id="Set-实例的属性和方法"><a href="#Set-实例的属性和方法" class="headerlink" title="Set 实例的属性和方法"></a>Set 实例的属性和方法</h3><p>Set 结构的实例有以下属性：</p>
+<ul>
+<li><strong>Set.prototype.constructor</strong>：构造函数，默认就是Set函数。</li>
+<li><strong>Set.prototype.size</strong>：返回Set实例的成员总数。</li>
+</ul>
+<p>Set 实例的方法分为两大类：操作方法（用于操作数据）和遍历方法（用于遍历成员）。下面是四个操作方法：</p>
+<ul>
+<li><strong>Set.prototype.add(value)</strong>：添加某个值，返回 Set 结构本身。</li>
+<li><strong>Set.prototype.delete(value)</strong>：删除某个值，返回一个布尔值，表示删除是否成功。</li>
+<li><strong>Set.prototype.has(value)</strong>：返回一个布尔值，表示该值是否为Set的成员。</li>
+<li><strong>Set.prototype.clear( )</strong>：清除所有成员，没有返回值。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/07/19/快乐暑假第十一天/" data-id="cjya6awja0007o0uwnsx9xknn" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-快乐暑假第十天——学习ES6" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/07/18/快乐暑假第十天——学习ES6/" class="article-date">
@@ -283,7 +432,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/18/快乐暑假第十天——学习ES6/" data-id="cjy8ota030006zsuwhlqsmxza" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/18/快乐暑假第十天——学习ES6/" data-id="cjya6awje000ao0uw8ox15ilf" class="article-share-link">Share</a>
       
       
     </footer>
@@ -400,7 +549,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/17/快乐暑假第九天——学习移动端网页制作/" data-id="cjy8ot9zv0003zsuwreh33nsu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/17/快乐暑假第九天——学习移动端网页制作/" data-id="cjya6awiu0002o0uwmkuje1vf" class="article-share-link">Share</a>
       
       
     </footer>
@@ -571,7 +720,7 @@ canvas有自己的宽高，超出的部分不会显示；<br>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/16/快乐暑假第八天——学习canvas/" data-id="cjy8ota040007zsuwyfnwplub" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/16/快乐暑假第八天——学习canvas/" data-id="cjya6awj90006o0uwtb59tdry" class="article-share-link">Share</a>
       
       
     </footer>
@@ -681,7 +830,7 @@ canvas有自己的宽高，超出的部分不会显示；<br>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/15/快乐暑假第七天——学习Ajax/" data-id="cjy8ot9zt0002zsuwmvr2yha9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/15/快乐暑假第七天——学习Ajax/" data-id="cjya6awiw0003o0uwf3ovnn46" class="article-share-link">Share</a>
       
       
     </footer>
@@ -761,7 +910,7 @@ canvas有自己的宽高，超出的部分不会显示；<br>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/14/快乐暑假第六天/" data-id="cjy8ot9zw0005zsuwi77poyea" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/14/快乐暑假第六天/" data-id="cjya6awj70004o0uwmu36w9su" class="article-share-link">Share</a>
       
       
     </footer>
@@ -873,7 +1022,7 @@ canvas有自己的宽高，超出的部分不会显示；<br>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/12/快乐暑假第五天/" data-id="cjy8ota060009zsuwoszb14e5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/12/快乐暑假第五天/" data-id="cjya6awjd0009o0uw9skmpa6e" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1015,7 +1164,7 @@ ps：今天没抽卡。
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/11/快乐暑假第四天/" data-id="cjy8ota07000azsuw2yz10djj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/11/快乐暑假第四天/" data-id="cjya6awji000bo0uwqz6vhaxo" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1387,7 +1536,7 @@ JavaScript 中有许多操作都会隐式地转换数据类型，最常见的就
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/10/快乐暑假第三天/" data-id="cjy8ota0f000bzsuwftpe1iso" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/10/快乐暑假第三天/" data-id="cjya6awjj000co0uwqr7u2fyd" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1590,95 +1739,7 @@ JavaScript 中有许多操作都会隐式地转换数据类型，最常见的就
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/09/快乐暑假第二天/" data-id="cjy8ota050008zsuwkzr2yob0" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-快乐暑假第一天" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/07/08/快乐暑假第一天/" class="article-date">
-  <time datetime="2019-07-08T10:51:01.000Z" itemprop="datePublished">2019-07-08</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/08/快乐暑假第一天/">快乐暑假第一天</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>快乐的暑假开始了！！！今天主要学习了git相关的一些东西，以及搭建了自己的博客，虽然在我出色的操作下，遇到了各种各样的奇葩问题</p>
-</blockquote>
-<h1 id="一、-git相关操作"><a href="#一、-git相关操作" class="headerlink" title="一、 git相关操作"></a>一、 git相关操作</h1><blockquote>
-<p>在多人协作完成一个项目的情况下，如果只靠将文件传来传去这种老方法是十分麻烦的，而且人一多就极其容易发生各种各样的错误。因此在多人协作时，需要依靠git这种卓越的工具</p>
-</blockquote>
-<ol>
-<li><p><strong>将远程库的内容克隆到本地</strong><br></p>
-<p> 使用命令 <strong>git clone</strong> ，后跟从GitHub复制来的地址</p>
-</li>
-<li><p><strong>创建自己的分支</strong></p>
-<blockquote>
-<p>为了避免各种各样的错误，应该创建自己的分支，并在自己的分支里进行各种各样的修改和操作</p>
-</blockquote>
-<p> 使用命令 <strong>git checkout -b</strong> ,后跟自己分支的名字，此时<strong>head</strong>的指向从<strong>master</strong>变成自己创建的分支</p>
-</li>
-<li><p><strong>将修改后的文件添加到暂存区</strong></p>
-<blockquote>
-<p>文件修改后需要先 add 到暂存区，否则无法 commit 到 master 上，可以 add 多个文件之后再 commit</p>
-</blockquote>
-<p> 使用命令 <strong>git add</strong> ，后跟要添加的文件名或者”.”(表示所有文件)</p>
-</li>
-<li><p><strong>将暂存区中的文件提交到分支上</strong></p>
-<p> 使用命令 <strong>git commit -m “注释”</strong></p>
-</li>
-<li><p><strong>抓取远程库的文件资源</strong></p>
-<blockquote>
-<p>自己修改完文件后，可能团队的其他人在此期间内也修改了文件并且已经提交到远程库上，因此在将本地分支推送到远程库之前，为了更新资源避免错误，需要将远程库上的资源抓取到本地</p>
-</blockquote>
-<p> 使用命令 <strong>git pull</strong></p>
-</li>
-<li><p><strong>合并分支</strong></p>
-<p> 先使用 <strong>git checkout master</strong> 让 head 指向 master 分支，然后使用 <strong>git merge <name></name></strong> 来合并分支</p>
-</li>
-<li><p><strong>将本地分支推送到远程库中</strong>、</p>
-<blockquote>
-<p>本地分支他人是不可见的，因此需要将本地分支推送到远程库中</p>
-</blockquote>
-<p> 使用命令 <strong>git push</strong></p>
-</li>
-</ol>
-<h1 id="二、-hexo博客"><a href="#二、-hexo博客" class="headerlink" title="二、 hexo博客"></a>二、 hexo博客</h1><ul>
-<li><strong>hexo n “title”</strong> :创建一篇标题为 title 的博客</li>
-<li><strong>hexo g</strong> :生成静态文章</li>
-<li><strong>hexo s</strong> :启动本地服务器，用于预览主题</li>
-<li><strong>hexo d</strong> :自动生成网站静态文件，并部署到设定的仓库</li>
-</ul>
-<h1 id="三、-小结"><a href="#三、-小结" class="headerlink" title="三、 小结"></a>三、 小结</h1><ul>
-<li>今天是培训第一天，我格外适应这种一坐几个小时都不用动的生活</li>
-<li>今天了解了git的一些基本操作，但还不是很熟练，还需要多练习几次</li>
-<li>今天开始贯彻落实每天运动的基本方针，强身健体，提神醒脑</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/08/快乐暑假第一天/" data-id="cjy8ot9zr0001zsuw2d8kl1zg" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/09/快乐暑假第二天/" data-id="cjya6awjb0008o0uwyoi66fly" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1724,6 +1785,10 @@ JavaScript 中有许多操作都会隐式地转换数据类型，最常见的就
       <ul>
         
           <li>
+            <a href="/2019/07/19/快乐暑假第十一天/">快乐暑假第十一天</a>
+          </li>
+        
+          <li>
             <a href="/2019/07/18/快乐暑假第十天——学习ES6/">快乐暑假第十天——学习ES6</a>
           </li>
         
@@ -1737,10 +1802,6 @@ JavaScript 中有许多操作都会隐式地转换数据类型，最常见的就
         
           <li>
             <a href="/2019/07/15/快乐暑假第七天——学习Ajax/">快乐暑假第七天——学习Ajax</a>
-          </li>
-        
-          <li>
-            <a href="/2019/07/14/快乐暑假第六天/">快乐暑假第六天</a>
           </li>
         
       </ul>
