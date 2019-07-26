@@ -62,6 +62,116 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-快乐暑假第七天——学习Ajax" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/07/15/快乐暑假第七天——学习Ajax/" class="article-date">
+  <time datetime="2019-07-15T13:32:25.000Z" itemprop="datePublished">2019-07-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/15/快乐暑假第七天——学习Ajax/">快乐暑假第七天——学习Ajax</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <div style="font-size: 24px;color: blue;font-weight:bold;margin-top:30px">今日小结</div>
+<p style="font-size:18px;text-align:left;text-indent:2em">
+今天把之前六七章的笔记又回顾了一下，感觉已经比之前第一次看的时候要熟悉许多。然后在w3school上看了一下Ajax(貌似没有专门讲Ajax的博客)，大概就是XMLHttpRequest对象极其open( )和send( )方法、responseTex和responseXML两种获取内容的属性、onreadystatechange 事件这几个方面。
+</p>
+
+<div style="font-size: 24px;color: blue;font-weight:bold;margin-top:30px">笔记部分</div>
+
+<h1 id="1-创建-XMLHttpRequest-对象"><a href="#1-创建-XMLHttpRequest-对象" class="headerlink" title="1. 创建 XMLHttpRequest 对象"></a>1. 创建 XMLHttpRequest 对象</h1><p>XMLHttpRequest 对象是 AJAX 的基础，用于在后台与服务器交换数据。</p>
+<ul>
+<li>创建 XMLHttpRequest 对象的语法：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">variable=<span class="keyword">new</span> XMLHttpRequest();</span><br></pre></td></tr></table></figure>
+
+<p>(老版本的 Internet Explorer （IE5 和 IE6）使用 ActiveX 对象)</p>
+<p>为了兼容所有浏览器，可写为：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xmlhttp;</span><br><span class="line"><span class="keyword">if</span> (<span class="built_in">window</span>.XMLHttpRequest)</span><br><span class="line">  &#123;<span class="comment">// code for IE7+, Firefox, Chrome, Opera, Safari</span></span><br><span class="line">  xmlhttp=<span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">  &#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">  &#123;<span class="comment">// code for IE6, IE5</span></span><br><span class="line">  xmlhttp=<span class="keyword">new</span> ActiveXObject(<span class="string">"Microsoft.XMLHTTP"</span>);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="2-向服务器发送请求"><a href="#2-向服务器发送请求" class="headerlink" title="2. 向服务器发送请求"></a>2. 向服务器发送请求</h1><p>使用 XMLHttpRequest 对象的 open() 和 send() 方法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xmlhttp.open(<span class="string">"GET"</span>,<span class="string">"test1.txt"</span>,<span class="literal">true</span>);</span><br><span class="line">xmlhttp.send();</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="left">方法</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">open(method, url, async)</td>
+<td align="left">method：请求的类型；GET 或 POST<br>url：文件在服务器上的位置<br>async：true（异步）或 false（同步）</td>
+</tr>
+<tr>
+<td align="left">send(string)</td>
+<td align="left">string：仅用于 POST 请求</td>
+</tr>
+</tbody></table>
+<h2 id="GET-和-POST-的选择"><a href="#GET-和-POST-的选择" class="headerlink" title="GET 和 POST 的选择"></a>GET 和 POST 的选择</h2><p>GET 更简单也更快，但在以下情况中，必须使用 POST 请求：</p>
+<ol>
+<li>无法使用缓存文件（更新服务器上的文件或数据库）</li>
+<li>向服务器发送大量数据（POST 没有数据量限制）</li>
+<li>发送包含未知字符的用户输入时，POST 比 GET 更稳定也更可靠</li>
+</ol>
+<h1 id="3-服务器响应"><a href="#3-服务器响应" class="headerlink" title="3. 服务器响应"></a>3. 服务器响应</h1><p>如需获得来自服务器的响应，需要使用 XMLHttpRequest 对象的 responseText 或 responseXML 属性：</p>
+<ul>
+<li>responseText ： 获得字符串形式的响应数据</li>
+<li>responseXML ： 获得 XML 形式的响应数据</li>
+</ul>
+<h1 id="4-onreadystatechange-事件"><a href="#4-onreadystatechange-事件" class="headerlink" title="4. onreadystatechange 事件"></a>4. onreadystatechange 事件</h1><p>XMLHttpRequest 对象的三个重要的属性：</p>
+<table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">onreadystatechange</td>
+<td align="left">存储函数（或函数名），每当 readyState 属性改变时，就会调用该函数。</td>
+</tr>
+<tr>
+<td align="left">readyState</td>
+<td align="left">存有 XMLHttpRequest 的状态,从 0 到 4 发生变化。<br>0: 请求未初始化<br>1: 服务器连接已建立<br>2: 请求已接收<br>3: 请求处理中<br>4: 请求已完成，且响应已就绪</td>
+</tr>
+<tr>
+<td align="left">status</td>
+<td align="left">200: “OK”<br>404: 未找到页面</td>
+</tr>
+</tbody></table>
+<p>当 readyState 等于 4 且状态为 200 时，表示响应已就绪：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">xmlhttp.onreadystatechange=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (xmlhttp.readyState==<span class="number">4</span> &amp;&amp; xmlhttp.status==<span class="number">200</span>)</span><br><span class="line">    &#123;</span><br><span class="line">    <span class="built_in">document</span>.getElementById(<span class="string">"myDiv"</span>).innerHTML=xmlhttp.responseText;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>onreadystatechange 事件被触发 5 次（0 - 4），对应着 readyState 的每个变化</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/07/15/快乐暑假第七天——学习Ajax/" data-id="cjyk44b8q000048uwbca0izls" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-快乐暑假第六天" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/07/14/快乐暑假第六天/" class="article-date">
@@ -132,7 +242,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/14/快乐暑假第六天/" data-id="cjyip996q0005douw5lp54ryi" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/14/快乐暑假第六天/" data-id="cjyk44b90000448uwuhik9w93" class="article-share-link">Share</a>
       
       
     </footer>
@@ -244,7 +354,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/12/快乐暑假第五天/" data-id="cjyip99710009douws1s2y76e" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/12/快乐暑假第五天/" data-id="cjyk44b9c000a48uwbs3pf19n" class="article-share-link">Share</a>
       
       
     </footer>
@@ -386,7 +496,7 @@ ps：今天没抽卡。
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/11/快乐暑假第四天/" data-id="cjyip9978000gdouw99h4psqa" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/11/快乐暑假第四天/" data-id="cjyk44b9l000h48uw6l50iufx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -758,7 +868,7 @@ JavaScript 中有许多操作都会隐式地转换数据类型，最常见的就
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/10/快乐暑假第三天/" data-id="cjyip997e000hdouwc6hvwmpe" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/10/快乐暑假第三天/" data-id="cjyk44b9r000i48uw5bmgk40c" class="article-share-link">Share</a>
       
       
     </footer>
@@ -961,7 +1071,7 @@ JavaScript 中有许多操作都会隐式地转换数据类型，最常见的就
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/09/快乐暑假第二天/" data-id="cjyip9972000adouwxpkjkpls" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/09/快乐暑假第二天/" data-id="cjyk44b9d000b48uwkinmxm94" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1049,7 +1159,7 @@ JavaScript 中有许多操作都会隐式地转换数据类型，最常见的就
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/08/快乐暑假第一天/" data-id="cjyip996k0001douw7yzptpco" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/08/快乐暑假第一天/" data-id="cjyk44b8y000248uwx3eq48jx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1086,7 +1196,7 @@ JavaScript 中有许多操作都会隐式地转换数据类型，最常见的就
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/08/的/" data-id="cjyip996t0008douw9kuocpeb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/08/的/" data-id="cjyk44b96000948uwfy5rfx26" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1135,7 +1245,7 @@ JavaScript 中有许多操作都会隐式地转换数据类型，最常见的就
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/08/hello-world/" data-id="cjyip996g0000douwwu983vqn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/08/hello-world/" data-id="cjyk44b8v000148uwxj44rife" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1181,6 +1291,10 @@ JavaScript 中有许多操作都会隐式地转换数据类型，最常见的就
       <ul>
         
           <li>
+            <a href="/2019/07/26/快乐暑假第十七天——开始学习nodejs/">快乐暑假第十七天——开始学习nodejs</a>
+          </li>
+        
+          <li>
             <a href="/2019/07/25/快乐暑假第十六天——继续做Bolo/">快乐暑假第十六天——继续做Bolo</a>
           </li>
         
@@ -1194,10 +1308,6 @@ JavaScript 中有许多操作都会隐式地转换数据类型，最常见的就
         
           <li>
             <a href="/2019/07/22/快乐暑假第十三天/">快乐暑假第十三天</a>
-          </li>
-        
-          <li>
-            <a href="/2019/07/21/快乐暑假第十二天/">快乐暑假第十二天</a>
           </li>
         
       </ul>

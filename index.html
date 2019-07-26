@@ -62,6 +62,99 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-快乐暑假第十七天——开始学习nodejs" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/07/26/快乐暑假第十七天——开始学习nodejs/" class="article-date">
+  <time datetime="2019-07-26T12:58:47.000Z" itemprop="datePublished">2019-07-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/26/快乐暑假第十七天——开始学习nodejs/">快乐暑假第十七天——开始学习nodejs</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-NPM-使用介绍"><a href="#1-NPM-使用介绍" class="headerlink" title="1. NPM 使用介绍"></a>1. NPM 使用介绍</h1><p>Window 系统更新命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install npm -g</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用-npm-命令安装模块"><a href="#使用-npm-命令安装模块" class="headerlink" title="使用 npm 命令安装模块"></a>使用 npm 命令安装模块</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install &lt;Module Name&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="全局安装与本地安装"><a href="#全局安装与本地安装" class="headerlink" title="全局安装与本地安装"></a>全局安装与本地安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install &lt;Module Name&gt;       # 本地安装</span><br><span class="line">npm install &lt;Module Name&gt; -g    # 全局安装</span><br></pre></td></tr></table></figure>
+
+<p>如果出现以下错误：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm err! Error: connect ECONNREFUSED 127.0.0.1:8087</span><br></pre></td></tr></table></figure>
+
+<p>解决办法为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm config set proxy null</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>本地安装<ul>
+<li>将安装包放在 ./node _ modules 下（运行 npm 命令时所在的目录），如果没有 node _ modules 目录，会在当前执行 npm 命令的目录下生成 node_modules 目录。</li>
+<li>可以通过 require() 来引入本地安装的包。</li>
+</ul>
+</li>
+<li>全局安装<ul>
+<li>将安装包放在 /usr/local 下或者你 node 的安装目录。</li>
+<li>可以直接在命令行里使用。</li>
+</ul>
+</li>
+</ul>
+<h2 id="查看安装信息"><a href="#查看安装信息" class="headerlink" title="查看安装信息"></a>查看安装信息</h2><p>查看所有全局安装的模块：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm list -g</span><br></pre></td></tr></table></figure>
+
+<p>查看某个模块的版本号：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm list grunt</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用-package-json"><a href="#使用-package-json" class="headerlink" title="使用 package.json"></a>使用 package.json</h2><p>package.json 位于模块的目录下，用于定义包的属性。</p>
+<h4 id="属性说明"><a href="#属性说明" class="headerlink" title="属性说明"></a>属性说明</h4><ul>
+<li><strong>name</strong> - 包名。</li>
+<li><strong>version</strong> - 包的版本号。</li>
+<li><strong>description</strong> - 包的描述。</li>
+<li><strong>homepage</strong> - 包的官网 url 。</li>
+<li><strong>author</strong> - 包的作者姓名。</li>
+<li><strong>contributors</strong> - 包的其他贡献者姓名。</li>
+<li><strong>dependencies</strong> - 依赖包列表。如果依赖包没有安装，npm 会自动将依赖包安装在 node_module 目录下。</li>
+<li><strong>repository</strong> - 包代码存放的地方的类型，可以是 git 或 svn，git 可在 Github 上。</li>
+<li><strong>main</strong> - main 字段指定了程序的主入口文件，require(‘moduleName’) 就会加载这个文件。这个字段的默认值是模块根目录下面的 index.js。</li>
+<li><strong>keywords</strong> - 关键字。</li>
+</ul>
+<h2 id="卸载模块"><a href="#卸载模块" class="headerlink" title="卸载模块"></a>卸载模块</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm uninstall &lt;Module Name&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="更新模块"><a href="#更新模块" class="headerlink" title="更新模块"></a>更新模块</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm update &lt;Module Name&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="搜索模块"><a href="#搜索模块" class="headerlink" title="搜索模块"></a>搜索模块</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm search &lt;Module Name&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="创建模块"><a href="#创建模块" class="headerlink" title="创建模块"></a>创建模块</h2><p>创建模块，package.json 文件是必不可少的。我们可以使用 NPM 生成 package.json 文件，生成的文件包含了基本的结果。</p>
+<h1 id="2-Node-js-REPL-交互式解释器"><a href="#2-Node-js-REPL-交互式解释器" class="headerlink" title="2. Node.js REPL(交互式解释器)"></a>2. Node.js REPL(交互式解释器)</h1><h2 id="简单的表达式运算"><a href="#简单的表达式运算" class="headerlink" title="简单的表达式运算"></a>简单的表达式运算</h2><h2 id="使用变量"><a href="#使用变量" class="headerlink" title="使用变量"></a>使用变量</h2><p>变量声明需要使用 var 关键字，如果没有使用 var 关键字变量会直接打印出来。</p>
+<p>使用 var 关键字的变量可以使用 console.log() 来输出变量。</p>
+<h2 id="多行表达式"><a href="#多行表达式" class="headerlink" title="多行表达式"></a>多行表达式</h2><p>… 三个点的符号是系统自动生成的，回车换行后即可。Node 会自动检测是否为连续的表达式。</p>
+<h2 id="下划线-变量"><a href="#下划线-变量" class="headerlink" title="下划线(_)变量"></a>下划线(_)变量</h2><p>可以使用下划线(_)获取上一个表达式的运算结果：</p>
+<h1 id="3-Node-js-回调函数"><a href="#3-Node-js-回调函数" class="headerlink" title="3. Node.js 回调函数"></a>3. Node.js 回调函数</h1><p>回调函数一般作为函数的最后一个参数出现。</p>
+<p>阻塞是按顺序执行的，而非阻塞是不需要按顺序的，所以如果需要处理回调函数的参数，我们就需要写在回调函数内。</p>
+<h1 id="4-Node-js-事件循环"><a href="#4-Node-js-事件循环" class="headerlink" title="4. Node.js 事件循环"></a>4. Node.js 事件循环</h1>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/07/26/快乐暑假第十七天——开始学习nodejs/" data-id="cjyk44b91000548uwqde7xthg" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-快乐暑假第十六天——继续做Bolo" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/07/25/快乐暑假第十六天——继续做Bolo/" class="article-date">
@@ -125,7 +218,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/25/快乐暑假第十六天——继续做Bolo/" data-id="cjyip996r0006douwmx24k4qa" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/25/快乐暑假第十六天——继续做Bolo/" data-id="cjyk44b93000748uwu3rkj31i" class="article-share-link">Share</a>
       
       
     </footer>
@@ -178,7 +271,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/24/快乐暑假第十五天——开始做Bolo/" data-id="cjyip996p0004douw9x0wtqh6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/24/快乐暑假第十五天——开始做Bolo/" data-id="cjyk44b92000648uw1pm6j0cl" class="article-share-link">Share</a>
       
       
     </footer>
@@ -371,7 +464,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/23/快乐暑假第十四天——学习jQuery/" data-id="cjyip996s0007douwjm7uxi4f" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/23/快乐暑假第十四天——学习jQuery/" data-id="cjyk44b94000848uwq05gxmg5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -564,7 +657,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/22/快乐暑假第十三天/" data-id="cjyip9978000fdouwubub7o9k" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/22/快乐暑假第十三天/" data-id="cjyk44b9j000f48uwkx24dyhh" class="article-share-link">Share</a>
       
       
     </footer>
@@ -746,7 +839,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/21/快乐暑假第十二天/" data-id="cjyip9977000edouwnsx249zm" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/21/快乐暑假第十二天/" data-id="cjyk44b9i000e48uws5d83hyz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -895,7 +988,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/19/快乐暑假第十一天/" data-id="cjyip9975000cdouwlri5vumh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/19/快乐暑假第十一天/" data-id="cjyk44b9h000d48uwi8fegmhi" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1126,7 +1219,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/18/快乐暑假第十天——学习ES6/" data-id="cjyip9976000ddouwvj0afh7x" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/18/快乐暑假第十天——学习ES6/" data-id="cjyk44b9k000g48uwq45mzexc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1243,7 +1336,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/17/快乐暑假第九天——学习移动端网页制作/" data-id="cjyip996m0002douwl4o5rjd6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/17/快乐暑假第九天——学习移动端网页制作/" data-id="cjyk44b8z000348uwx5v3zmo6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1414,117 +1507,7 @@ canvas有自己的宽高，超出的部分不会显示；<br>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/16/快乐暑假第八天——学习canvas/" data-id="cjyip9974000bdouw3q47qzo7" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-快乐暑假第七天——学习Ajax" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/07/15/快乐暑假第七天——学习Ajax/" class="article-date">
-  <time datetime="2019-07-15T13:32:25.000Z" itemprop="datePublished">2019-07-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/15/快乐暑假第七天——学习Ajax/">快乐暑假第七天——学习Ajax</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <div style="font-size: 24px;color: blue;font-weight:bold;margin-top:30px">今日小结</div>
-<p style="font-size:18px;text-align:left;text-indent:2em">
-今天把之前六七章的笔记又回顾了一下，感觉已经比之前第一次看的时候要熟悉许多。然后在w3school上看了一下Ajax(貌似没有专门讲Ajax的博客)，大概就是XMLHttpRequest对象极其open( )和send( )方法、responseTex和responseXML两种获取内容的属性、onreadystatechange 事件这几个方面。
-</p>
-
-<div style="font-size: 24px;color: blue;font-weight:bold;margin-top:30px">笔记部分</div>
-
-<h1 id="1-创建-XMLHttpRequest-对象"><a href="#1-创建-XMLHttpRequest-对象" class="headerlink" title="1. 创建 XMLHttpRequest 对象"></a>1. 创建 XMLHttpRequest 对象</h1><p>XMLHttpRequest 对象是 AJAX 的基础，用于在后台与服务器交换数据。</p>
-<ul>
-<li>创建 XMLHttpRequest 对象的语法：</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">variable=<span class="keyword">new</span> XMLHttpRequest();</span><br></pre></td></tr></table></figure>
-
-<p>(老版本的 Internet Explorer （IE5 和 IE6）使用 ActiveX 对象)</p>
-<p>为了兼容所有浏览器，可写为：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xmlhttp;</span><br><span class="line"><span class="keyword">if</span> (<span class="built_in">window</span>.XMLHttpRequest)</span><br><span class="line">  &#123;<span class="comment">// code for IE7+, Firefox, Chrome, Opera, Safari</span></span><br><span class="line">  xmlhttp=<span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">  &#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">  &#123;<span class="comment">// code for IE6, IE5</span></span><br><span class="line">  xmlhttp=<span class="keyword">new</span> ActiveXObject(<span class="string">"Microsoft.XMLHTTP"</span>);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="2-向服务器发送请求"><a href="#2-向服务器发送请求" class="headerlink" title="2. 向服务器发送请求"></a>2. 向服务器发送请求</h1><p>使用 XMLHttpRequest 对象的 open() 和 send() 方法：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xmlhttp.open(<span class="string">"GET"</span>,<span class="string">"test1.txt"</span>,<span class="literal">true</span>);</span><br><span class="line">xmlhttp.send();</span><br></pre></td></tr></table></figure>
-
-<table>
-<thead>
-<tr>
-<th align="left">方法</th>
-<th align="left">描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">open(method, url, async)</td>
-<td align="left">method：请求的类型；GET 或 POST<br>url：文件在服务器上的位置<br>async：true（异步）或 false（同步）</td>
-</tr>
-<tr>
-<td align="left">send(string)</td>
-<td align="left">string：仅用于 POST 请求</td>
-</tr>
-</tbody></table>
-<h2 id="GET-和-POST-的选择"><a href="#GET-和-POST-的选择" class="headerlink" title="GET 和 POST 的选择"></a>GET 和 POST 的选择</h2><p>GET 更简单也更快，但在以下情况中，必须使用 POST 请求：</p>
-<ol>
-<li>无法使用缓存文件（更新服务器上的文件或数据库）</li>
-<li>向服务器发送大量数据（POST 没有数据量限制）</li>
-<li>发送包含未知字符的用户输入时，POST 比 GET 更稳定也更可靠</li>
-</ol>
-<h1 id="3-服务器响应"><a href="#3-服务器响应" class="headerlink" title="3. 服务器响应"></a>3. 服务器响应</h1><p>如需获得来自服务器的响应，需要使用 XMLHttpRequest 对象的 responseText 或 responseXML 属性：</p>
-<ul>
-<li>responseText ： 获得字符串形式的响应数据</li>
-<li>responseXML ： 获得 XML 形式的响应数据</li>
-</ul>
-<h1 id="4-onreadystatechange-事件"><a href="#4-onreadystatechange-事件" class="headerlink" title="4. onreadystatechange 事件"></a>4. onreadystatechange 事件</h1><p>XMLHttpRequest 对象的三个重要的属性：</p>
-<table>
-<thead>
-<tr>
-<th align="left">属性</th>
-<th align="left">描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">onreadystatechange</td>
-<td align="left">存储函数（或函数名），每当 readyState 属性改变时，就会调用该函数。</td>
-</tr>
-<tr>
-<td align="left">readyState</td>
-<td align="left">存有 XMLHttpRequest 的状态,从 0 到 4 发生变化。<br>0: 请求未初始化<br>1: 服务器连接已建立<br>2: 请求已接收<br>3: 请求处理中<br>4: 请求已完成，且响应已就绪</td>
-</tr>
-<tr>
-<td align="left">status</td>
-<td align="left">200: “OK”<br>404: 未找到页面</td>
-</tr>
-</tbody></table>
-<p>当 readyState 等于 4 且状态为 200 时，表示响应已就绪：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">xmlhttp.onreadystatechange=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (xmlhttp.readyState==<span class="number">4</span> &amp;&amp; xmlhttp.status==<span class="number">200</span>)</span><br><span class="line">    &#123;</span><br><span class="line">    <span class="built_in">document</span>.getElementById(<span class="string">"myDiv"</span>).innerHTML=xmlhttp.responseText;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>onreadystatechange 事件被触发 5 次（0 - 4），对应着 readyState 的每个变化</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/15/快乐暑假第七天——学习Ajax/" data-id="cjyip996o0003douwh44u9lp0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/16/快乐暑假第八天——学习canvas/" data-id="cjyk44b9g000c48uwqseos607" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1570,6 +1553,10 @@ canvas有自己的宽高，超出的部分不会显示；<br>
       <ul>
         
           <li>
+            <a href="/2019/07/26/快乐暑假第十七天——开始学习nodejs/">快乐暑假第十七天——开始学习nodejs</a>
+          </li>
+        
+          <li>
             <a href="/2019/07/25/快乐暑假第十六天——继续做Bolo/">快乐暑假第十六天——继续做Bolo</a>
           </li>
         
@@ -1583,10 +1570,6 @@ canvas有自己的宽高，超出的部分不会显示；<br>
         
           <li>
             <a href="/2019/07/22/快乐暑假第十三天/">快乐暑假第十三天</a>
-          </li>
-        
-          <li>
-            <a href="/2019/07/21/快乐暑假第十二天/">快乐暑假第十二天</a>
           </li>
         
       </ul>
