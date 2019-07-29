@@ -62,6 +62,50 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-快乐暑假第19天——学习nodejs处理两种请求" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/07/29/快乐暑假第19天——学习nodejs处理两种请求/" class="article-date">
+  <time datetime="2019-07-29T12:42:37.000Z" itemprop="datePublished">2019-07-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/29/快乐暑假第19天——学习nodejs处理两种请求/">快乐暑假第19天——学习nodejs处理两种请求</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="12-Node-js-GET-POST请求"><a href="#12-Node-js-GET-POST请求" class="headerlink" title="12. Node.js GET/POST请求"></a>12. Node.js GET/POST请求</h1><h2 id="获取GET请求内容"><a href="#获取GET请求内容" class="headerlink" title="获取GET请求内容"></a>获取GET请求内容</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"><span class="keyword">var</span> url = <span class="built_in">require</span>(<span class="string">'url'</span>);</span><br><span class="line"><span class="keyword">var</span> util = <span class="built_in">require</span>(<span class="string">'util'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> server = http.createServer(<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;</span><br><span class="line">    res.writeHead(<span class="number">200</span>,&#123;<span class="string">'Content-Type'</span>: <span class="string">'text/plain'</span>&#125;);</span><br><span class="line">    <span class="keyword">var</span> params = url.parse(req.url, <span class="literal">true</span>);</span><br><span class="line">    res.write(<span class="string">'hello world!'</span>);</span><br><span class="line">    res.end(util.inspect(params));</span><br><span class="line">&#125;);</span><br><span class="line">server.listen(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="获取-POST-请求内容"><a href="#获取-POST-请求内容" class="headerlink" title="获取 POST 请求内容"></a>获取 POST 请求内容</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"><span class="keyword">var</span> server = http.createServer(<span class="function">(<span class="params">req, res</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> data = <span class="string">''</span>;</span><br><span class="line">    req.on(<span class="string">'data'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">chunk</span>)</span>&#123;</span><br><span class="line">        data+=chunk</span><br><span class="line">    &#125;)</span><br><span class="line">    req.on(<span class="string">'end'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        res.writeHead(<span class="number">200</span>,&#123;<span class="string">"Content-Type"</span>:<span class="string">'application/json'</span>&#125;);</span><br><span class="line">        res.end(<span class="string">'post sucess!'</span>);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>一般来说，get请求由于数据量少，因此可以直接采用第一方法去解析，但是第二种方法也可以解析get请求。</li>
+<li>post请求由于数据较多，需要将数据分段来进行传输，因此需要用第二种方法去解析post请求。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/07/29/快乐暑假第19天——学习nodejs处理两种请求/" data-id="cjyodutbf00035suwxzpx5sh3" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-快乐暑假第18天——继续学习nodejs" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/07/28/快乐暑假第18天——继续学习nodejs/" class="article-date">
@@ -332,7 +376,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/28/快乐暑假第18天——继续学习nodejs/" data-id="cjymys201000cb8uwv8topp8k" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/28/快乐暑假第18天——继续学习nodejs/" data-id="cjyodutbp000c5suwgey8iw8b" class="article-share-link">Share</a>
       
       
     </footer>
@@ -425,7 +469,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/26/快乐暑假第17天——开始学习nodejs/" data-id="cjymys1zf0003b8uwe37du3sz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/26/快乐暑假第17天——开始学习nodejs/" data-id="cjyodutbg00045suw24w720fr" class="article-share-link">Share</a>
       
       
     </footer>
@@ -498,7 +542,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/25/快乐暑假第16天——继续做Bolo/" data-id="cjymys1ze0002b8uwj0ki867h" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/25/快乐暑假第16天——继续做Bolo/" data-id="cjyodutax00005suw3kwoqb6n" class="article-share-link">Share</a>
       
       
     </footer>
@@ -551,7 +595,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/24/快乐暑假第15天——开始做Bolo/" data-id="cjymys1z90000b8uw6uqe9qvw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/24/快乐暑假第15天——开始做Bolo/" data-id="cjyodutbe00025suwah53so43" class="article-share-link">Share</a>
       
       
     </footer>
@@ -744,7 +788,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/23/快乐暑假第14天——学习jQuery/" data-id="cjymys1zd0001b8uwr651n95j" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/23/快乐暑假第14天——学习jQuery/" data-id="cjyodutbc00015suw5ax73w6z" class="article-share-link">Share</a>
       
       
     </footer>
@@ -937,7 +981,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/22/快乐暑假第13天/" data-id="cjymys1zz000bb8uw0vr0mt6h" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/22/快乐暑假第13天/" data-id="cjyodutbu000d5suw3suw88yc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1119,7 +1163,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/21/快乐暑假第12天/" data-id="cjymys1zw0009b8uwxqdouzsj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/21/快乐暑假第12天/" data-id="cjyodutbo000b5suwb5fo729t" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1268,7 +1312,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/19/快乐暑假第11天/" data-id="cjymys1zv0008b8uwh6rrwefi" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/19/快乐暑假第11天/" data-id="cjyodutbm00095suw1jno642u" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1499,124 +1543,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/18/快乐暑假第10天——学习ES6/" data-id="cjymys1zx000ab8uwzb3dzlol" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-快乐暑假第9天——学习移动端网页制作" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/07/17/快乐暑假第9天——学习移动端网页制作/" class="article-date">
-  <time datetime="2019-07-17T13:35:49.000Z" itemprop="datePublished">2019-07-17</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/17/快乐暑假第9天——学习移动端网页制作/">快乐暑假第9天——学习移动端网页制作</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <div style="font-size: 24px;color: blue;font-weight:bold;margin-top:30px">今日小结</div>
-<p style="font-size:18px;text-align:left;text-indent:2em">
-用vw和vh能很好地实现响应式布局，但是这两个单位的兼容性不强，只有较新版本的浏览器才能使用。
-</p>
-<p style="font-size:18px;text-align:left;text-indent:2em">
-移动端的网页与PC端相比，少了鼠标悬浮和鼠标移开等事件，多了触摸事件，可以用监听器来对touchstart、touchmove和touchend进行监听。要想让某个元素随手指移动而移动，可以监听touchstart事件，当手指触碰到屏幕时获取此时的位置。
-</p>
-<p style="font-size:18px;text-align:left;text-indent:2em">
-要想让某个元素随手指移动而移动，可以监听touchstart事件，当手指触碰到屏幕时通过clientX和clientY属性获取此时的位置；监听touchmove事件，随时获取此时的位置，然后计算出位移，再进行移动。
-</p>
-<div style="font-size: 24px;color: blue;font-weight:bold;margin-top:30px">笔记部分</div>
-
-<h1 id="1-vw、vh、vmin、vmax-简介"><a href="#1-vw、vh、vmin、vmax-简介" class="headerlink" title="1. vw、vh、vmin、vmax 简介"></a>1. vw、vh、vmin、vmax 简介</h1><p>这些单位是一种视窗单位，也是相对单位(相对于视窗)。</p>
-<ul>
-<li>视窗(Viewport)是浏览器实际显示内容的区域，即不包括工具栏和按钮的网页浏览器。</li>
-<li>具体描述：<ul>
-<li><strong>vw</strong>：视窗宽度的百分比（1vw 代表视窗的宽度为 1%）</li>
-<li><strong>vh</strong>：视窗高度的百分比</li>
-<li><strong>vmin</strong>：当前 vw 和 vh 中较小的一个值</li>
-<li><strong>vmax</strong>：当前 vw 和 vh 中较大的一个值</li>
-</ul>
-</li>
-</ul>
-<h2 id="vw、vh-与百分比-的区别"><a href="#vw、vh-与百分比-的区别" class="headerlink" title="vw、vh 与百分比 % 的区别"></a>vw、vh 与百分比 % 的区别</h2><ul>
-<li>% 是相对于父元素的大小设定的比率，vw、vh 是视窗大小决定的</li>
-<li>vw、vh <strong>能够直接获取高度</strong>，而用 % 在没有设置 body 高度的情况下，是无法正确获得可视区域的高度的</li>
-</ul>
-<h2 id="vmin、vmax-用处"><a href="#vmin、vmax-用处" class="headerlink" title="vmin、vmax 用处"></a>vmin、vmax 用处</h2><p>做移动页面开发时，如果使用 vw、wh 设置字体大小（比如 5vw），在竖屏和横屏状态下显示的字体大小是不一样的(因为两种状态下视窗宽高会发生变化)。此时就可以用 vmin 和 vmax <strong>使得文字大小在横竖屏下保持一致</strong>。</p>
-<h2 id="vw、vh-实现垂直居中"><a href="#vw、vh-实现垂直居中" class="headerlink" title="vw、vh 实现垂直居中"></a>vw、vh 实现垂直居中</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#box</span> &#123; </span><br><span class="line">  <span class="attribute">width</span>: <span class="number">50vw</span>; </span><br><span class="line">  <span class="attribute">height</span>: <span class="number">50vh</span>; </span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">25vh</span> auto; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="2-移动端触屏滑动事件"><a href="#2-移动端触屏滑动事件" class="headerlink" title="2. 移动端触屏滑动事件"></a>2. 移动端触屏滑动事件</h1><h2 id="四种-touch-事件"><a href="#四种-touch-事件" class="headerlink" title="四种 touch 事件"></a>四种 touch 事件</h2><ul>
-<li><strong>touchstart</strong>: 手指放到屏幕上时触发</li>
-<li><strong>touchmove</strong>: 手指在屏幕上滑动式触发</li>
-<li><strong>touchend</strong>: 手指离开屏幕时触发</li>
-<li><strong>touchcancel</strong>: 系统取消touch事件的时候触发(这个好像比较少用)</li>
-</ul>
-<h2 id="跟踪触摸"><a href="#跟踪触摸" class="headerlink" title="跟踪触摸"></a>跟踪触摸</h2><p>每个触摸事件被触发后，会生成一个event对象，event对象里额外包括以下三个触摸列表：</p>
-<ul>
-<li><strong>touches</strong>：表示当前跟踪的触摸操作的touch对象的数组。<ul>
-<li>当一个手指在触屏上时，event.touches.length=1,当两个手指在触屏上时，event.touches.length=2，以此类推。</li>
-</ul>
-</li>
-<li><strong>targetTouches</strong>：特定于事件目标的touch对象数组。<ul>
-<li>因为touch事件是会冒泡的，所以利用这个属性指出目标对象。</li>
-</ul>
-</li>
-<li><strong>changedTouches</strong>：表示自上次触摸以来发生了什么改变的touch对象的数组。</li>
-</ul>
-<p>这些列表里的每次触摸由touch对象组成，touch对象里包含着触摸信息，主要属性如下：</p>
-<ul>
-<li><strong>clientX</strong> / <strong>clientY</strong>：触摸目标在视口中的 x / y 坐标</li>
-<li><strong>identifier</strong>：标识触摸的唯一ID</li>
-<li><strong>pageX</strong> /  <strong>pageY</strong>：触摸目标在页面中的 x / y 坐标</li>
-<li><strong>screenX</strong> / <strong>screenY</strong>：触摸目标在屏幕中的 x / y 坐标</li>
-<li><strong>target</strong>：触摸的DOM节点目标</li>
-</ul>
-<h2 id="禁止缩放和滚动"><a href="#禁止缩放和滚动" class="headerlink" title="禁止缩放和滚动"></a>禁止缩放和滚动</h2><p>手指在滑动整个屏幕时，会影响浏览器的行为，比如滚动和缩放。所以在调用touch事件时，要注意禁止缩放和滚动。</p>
-<h4 id="禁止缩放"><a href="#禁止缩放" class="headerlink" title="禁止缩放"></a>禁止缩放</h4><p>通过meta元标签来设置。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"target-densitydpi=320,width=640,user-scalable=no"</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="禁止滚动"><a href="#禁止滚动" class="headerlink" title="禁止滚动"></a>禁止滚动</h4><p><strong>event.preventDefault()</strong>： preventDefault 是阻止默认行为，touch事件的默认行为就是滚动。</p>
-<h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">EventUtil.addHandler(div,<span class="string">"touchstart"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">  div.innerHTML=event.touches[<span class="number">0</span>].clientX+<span class="string">','</span>+event.touches[<span class="number">0</span>].clientY;</span><br><span class="line">&#125;);</span><br><span class="line">EventUtil.addHandler(div,<span class="string">"touchmove"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">  event.preventDefault();</span><br><span class="line">  div.innerHTML=event.touches[<span class="number">0</span>].clientX;</span><br><span class="line">&#125;);</span><br><span class="line">EventUtil.addHandler(div,<span class="string">"touchend"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">  div.innerHTML=event.changedTouches[<span class="number">0</span>].clientY;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>使用clientX……时，必须要指明具体的touch对象，而不要直接指明数组:<br><code>event.touches[0]</code></li>
-<li>在touchend事件处理函数中，当该事件发生时，touches里面已经没有任何的touch对象了，此时，就要使用changeTouches集合。</li>
-</ul>
-<h2 id="手势事件"><a href="#手势事件" class="headerlink" title="手势事件"></a>手势事件</h2><p>只有两个手指都触摸到事件的接收容器时才触发这些手势事件:</p>
-<ul>
-<li>gesturestart：当一个手指已经按在屏幕上，而另一个手指又触摸在屏幕时触发。</li>
-<li>gesturechange：当触摸屏幕的任何一个手指的位置发生变化时触发。</li>
-<li>gestureend：当任何一个手指从屏幕上面移开时触发。</li>
-</ul>
-<h4 id="触摸事件与手势事件之间的关系"><a href="#触摸事件与手势事件之间的关系" class="headerlink" title="触摸事件与手势事件之间的关系"></a>触摸事件与手势事件之间的关系</h4><ul>
-<li>当一个手指放在屏幕上时，会触发touchstart事件，如果另一个手指又放在了屏幕上，则会触发gesturestart事件，随后触发基于该手指的touchstart事件。</li>
-<li>如果一个或两个手指在屏幕上滑动，将会触发gesturechange事件，但只要有一个手指移开，则会触发gestureend事件，紧接着又会触发toucheend事件。</li>
-</ul>
-<h4 id="手势的专有属性"><a href="#手势的专有属性" class="headerlink" title="手势的专有属性"></a>手势的专有属性</h4><ul>
-<li>rotation：表示手指变化引起的旋转角度，负值表示逆时针，正值表示顺时针，从零开始。</li>
-<li>scale：表示两个手指之间的距离情况，向内收缩会缩短距离，这个值从1开始，并随距离拉大而增长。</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/17/快乐暑假第9天——学习移动端网页制作/" data-id="cjymys1zt0007b8uwlp03p57q" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/18/快乐暑假第10天——学习ES6/" data-id="cjyodutbn000a5suw9pa9evzm" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1662,6 +1589,10 @@
       <ul>
         
           <li>
+            <a href="/2019/07/29/快乐暑假第19天——学习nodejs处理两种请求/">快乐暑假第19天——学习nodejs处理两种请求</a>
+          </li>
+        
+          <li>
             <a href="/2019/07/28/快乐暑假第18天——继续学习nodejs/">快乐暑假第18天——继续学习nodejs</a>
           </li>
         
@@ -1675,10 +1606,6 @@
         
           <li>
             <a href="/2019/07/24/快乐暑假第15天——开始做Bolo/">快乐暑假第15天——开始做Bolo</a>
-          </li>
-        
-          <li>
-            <a href="/2019/07/23/快乐暑假第14天——学习jQuery/">快乐暑假第14天——学习jQuery</a>
           </li>
         
       </ul>

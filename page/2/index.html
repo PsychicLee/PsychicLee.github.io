@@ -62,6 +62,123 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-快乐暑假第9天——学习移动端网页制作" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/07/17/快乐暑假第9天——学习移动端网页制作/" class="article-date">
+  <time datetime="2019-07-17T13:35:49.000Z" itemprop="datePublished">2019-07-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/17/快乐暑假第9天——学习移动端网页制作/">快乐暑假第9天——学习移动端网页制作</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <div style="font-size: 24px;color: blue;font-weight:bold;margin-top:30px">今日小结</div>
+<p style="font-size:18px;text-align:left;text-indent:2em">
+用vw和vh能很好地实现响应式布局，但是这两个单位的兼容性不强，只有较新版本的浏览器才能使用。
+</p>
+<p style="font-size:18px;text-align:left;text-indent:2em">
+移动端的网页与PC端相比，少了鼠标悬浮和鼠标移开等事件，多了触摸事件，可以用监听器来对touchstart、touchmove和touchend进行监听。要想让某个元素随手指移动而移动，可以监听touchstart事件，当手指触碰到屏幕时获取此时的位置。
+</p>
+<p style="font-size:18px;text-align:left;text-indent:2em">
+要想让某个元素随手指移动而移动，可以监听touchstart事件，当手指触碰到屏幕时通过clientX和clientY属性获取此时的位置；监听touchmove事件，随时获取此时的位置，然后计算出位移，再进行移动。
+</p>
+<div style="font-size: 24px;color: blue;font-weight:bold;margin-top:30px">笔记部分</div>
+
+<h1 id="1-vw、vh、vmin、vmax-简介"><a href="#1-vw、vh、vmin、vmax-简介" class="headerlink" title="1. vw、vh、vmin、vmax 简介"></a>1. vw、vh、vmin、vmax 简介</h1><p>这些单位是一种视窗单位，也是相对单位(相对于视窗)。</p>
+<ul>
+<li>视窗(Viewport)是浏览器实际显示内容的区域，即不包括工具栏和按钮的网页浏览器。</li>
+<li>具体描述：<ul>
+<li><strong>vw</strong>：视窗宽度的百分比（1vw 代表视窗的宽度为 1%）</li>
+<li><strong>vh</strong>：视窗高度的百分比</li>
+<li><strong>vmin</strong>：当前 vw 和 vh 中较小的一个值</li>
+<li><strong>vmax</strong>：当前 vw 和 vh 中较大的一个值</li>
+</ul>
+</li>
+</ul>
+<h2 id="vw、vh-与百分比-的区别"><a href="#vw、vh-与百分比-的区别" class="headerlink" title="vw、vh 与百分比 % 的区别"></a>vw、vh 与百分比 % 的区别</h2><ul>
+<li>% 是相对于父元素的大小设定的比率，vw、vh 是视窗大小决定的</li>
+<li>vw、vh <strong>能够直接获取高度</strong>，而用 % 在没有设置 body 高度的情况下，是无法正确获得可视区域的高度的</li>
+</ul>
+<h2 id="vmin、vmax-用处"><a href="#vmin、vmax-用处" class="headerlink" title="vmin、vmax 用处"></a>vmin、vmax 用处</h2><p>做移动页面开发时，如果使用 vw、wh 设置字体大小（比如 5vw），在竖屏和横屏状态下显示的字体大小是不一样的(因为两种状态下视窗宽高会发生变化)。此时就可以用 vmin 和 vmax <strong>使得文字大小在横竖屏下保持一致</strong>。</p>
+<h2 id="vw、vh-实现垂直居中"><a href="#vw、vh-实现垂直居中" class="headerlink" title="vw、vh 实现垂直居中"></a>vw、vh 实现垂直居中</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#box</span> &#123; </span><br><span class="line">  <span class="attribute">width</span>: <span class="number">50vw</span>; </span><br><span class="line">  <span class="attribute">height</span>: <span class="number">50vh</span>; </span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">25vh</span> auto; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="2-移动端触屏滑动事件"><a href="#2-移动端触屏滑动事件" class="headerlink" title="2. 移动端触屏滑动事件"></a>2. 移动端触屏滑动事件</h1><h2 id="四种-touch-事件"><a href="#四种-touch-事件" class="headerlink" title="四种 touch 事件"></a>四种 touch 事件</h2><ul>
+<li><strong>touchstart</strong>: 手指放到屏幕上时触发</li>
+<li><strong>touchmove</strong>: 手指在屏幕上滑动式触发</li>
+<li><strong>touchend</strong>: 手指离开屏幕时触发</li>
+<li><strong>touchcancel</strong>: 系统取消touch事件的时候触发(这个好像比较少用)</li>
+</ul>
+<h2 id="跟踪触摸"><a href="#跟踪触摸" class="headerlink" title="跟踪触摸"></a>跟踪触摸</h2><p>每个触摸事件被触发后，会生成一个event对象，event对象里额外包括以下三个触摸列表：</p>
+<ul>
+<li><strong>touches</strong>：表示当前跟踪的触摸操作的touch对象的数组。<ul>
+<li>当一个手指在触屏上时，event.touches.length=1,当两个手指在触屏上时，event.touches.length=2，以此类推。</li>
+</ul>
+</li>
+<li><strong>targetTouches</strong>：特定于事件目标的touch对象数组。<ul>
+<li>因为touch事件是会冒泡的，所以利用这个属性指出目标对象。</li>
+</ul>
+</li>
+<li><strong>changedTouches</strong>：表示自上次触摸以来发生了什么改变的touch对象的数组。</li>
+</ul>
+<p>这些列表里的每次触摸由touch对象组成，touch对象里包含着触摸信息，主要属性如下：</p>
+<ul>
+<li><strong>clientX</strong> / <strong>clientY</strong>：触摸目标在视口中的 x / y 坐标</li>
+<li><strong>identifier</strong>：标识触摸的唯一ID</li>
+<li><strong>pageX</strong> /  <strong>pageY</strong>：触摸目标在页面中的 x / y 坐标</li>
+<li><strong>screenX</strong> / <strong>screenY</strong>：触摸目标在屏幕中的 x / y 坐标</li>
+<li><strong>target</strong>：触摸的DOM节点目标</li>
+</ul>
+<h2 id="禁止缩放和滚动"><a href="#禁止缩放和滚动" class="headerlink" title="禁止缩放和滚动"></a>禁止缩放和滚动</h2><p>手指在滑动整个屏幕时，会影响浏览器的行为，比如滚动和缩放。所以在调用touch事件时，要注意禁止缩放和滚动。</p>
+<h4 id="禁止缩放"><a href="#禁止缩放" class="headerlink" title="禁止缩放"></a>禁止缩放</h4><p>通过meta元标签来设置。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"target-densitydpi=320,width=640,user-scalable=no"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="禁止滚动"><a href="#禁止滚动" class="headerlink" title="禁止滚动"></a>禁止滚动</h4><p><strong>event.preventDefault()</strong>： preventDefault 是阻止默认行为，touch事件的默认行为就是滚动。</p>
+<h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">EventUtil.addHandler(div,<span class="string">"touchstart"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">  div.innerHTML=event.touches[<span class="number">0</span>].clientX+<span class="string">','</span>+event.touches[<span class="number">0</span>].clientY;</span><br><span class="line">&#125;);</span><br><span class="line">EventUtil.addHandler(div,<span class="string">"touchmove"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">  event.preventDefault();</span><br><span class="line">  div.innerHTML=event.touches[<span class="number">0</span>].clientX;</span><br><span class="line">&#125;);</span><br><span class="line">EventUtil.addHandler(div,<span class="string">"touchend"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">  div.innerHTML=event.changedTouches[<span class="number">0</span>].clientY;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>使用clientX……时，必须要指明具体的touch对象，而不要直接指明数组:<br><code>event.touches[0]</code></li>
+<li>在touchend事件处理函数中，当该事件发生时，touches里面已经没有任何的touch对象了，此时，就要使用changeTouches集合。</li>
+</ul>
+<h2 id="手势事件"><a href="#手势事件" class="headerlink" title="手势事件"></a>手势事件</h2><p>只有两个手指都触摸到事件的接收容器时才触发这些手势事件:</p>
+<ul>
+<li>gesturestart：当一个手指已经按在屏幕上，而另一个手指又触摸在屏幕时触发。</li>
+<li>gesturechange：当触摸屏幕的任何一个手指的位置发生变化时触发。</li>
+<li>gestureend：当任何一个手指从屏幕上面移开时触发。</li>
+</ul>
+<h4 id="触摸事件与手势事件之间的关系"><a href="#触摸事件与手势事件之间的关系" class="headerlink" title="触摸事件与手势事件之间的关系"></a>触摸事件与手势事件之间的关系</h4><ul>
+<li>当一个手指放在屏幕上时，会触发touchstart事件，如果另一个手指又放在了屏幕上，则会触发gesturestart事件，随后触发基于该手指的touchstart事件。</li>
+<li>如果一个或两个手指在屏幕上滑动，将会触发gesturechange事件，但只要有一个手指移开，则会触发gestureend事件，紧接着又会触发toucheend事件。</li>
+</ul>
+<h4 id="手势的专有属性"><a href="#手势的专有属性" class="headerlink" title="手势的专有属性"></a>手势的专有属性</h4><ul>
+<li>rotation：表示手指变化引起的旋转角度，负值表示逆时针，正值表示顺时针，从零开始。</li>
+<li>scale：表示两个手指之间的距离情况，向内收缩会缩短距离，这个值从1开始，并随距离拉大而增长。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/07/17/快乐暑假第9天——学习移动端网页制作/" data-id="cjyodutbk00085suw3br69wht" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-快乐暑假第8天——学习canvas" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/07/16/快乐暑假第8天——学习canvas/" class="article-date">
@@ -223,7 +340,7 @@ canvas有自己的宽高，超出的部分不会显示；<br>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/16/快乐暑假第8天——学习canvas/" data-id="cjymys209000gb8uwo4nknodd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/16/快乐暑假第8天——学习canvas/" data-id="cjyodutby000h5suw1x5e9erw" class="article-share-link">Share</a>
       
       
     </footer>
@@ -333,7 +450,7 @@ canvas有自己的宽高，超出的部分不会显示；<br>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/15/快乐暑假第7天——学习Ajax/" data-id="cjymys1zs0006b8uweo42m155" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/15/快乐暑假第7天——学习Ajax/" data-id="cjyodutbj00075suw8vlmtttc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -413,7 +530,7 @@ canvas有自己的宽高，超出的部分不会显示；<br>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/14/快乐暑假第6天/" data-id="cjymys1zr0005b8uw9rnlntyj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/14/快乐暑假第6天/" data-id="cjyodutbi00065suwri77a8d0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -525,7 +642,7 @@ canvas有自己的宽高，超出的部分不会显示；<br>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/12/快乐暑假第5天/" data-id="cjymys209000fb8uwy7wmrpqq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/12/快乐暑假第5天/" data-id="cjyodutbx000g5suwer9dlk1m" class="article-share-link">Share</a>
       
       
     </footer>
@@ -667,7 +784,7 @@ ps：今天没抽卡。
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/11/快乐暑假第4天/" data-id="cjymys208000eb8uwcyr05ufg" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/11/快乐暑假第4天/" data-id="cjyodutbw000f5suwroesahic" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1039,7 +1156,7 @@ JavaScript 中有许多操作都会隐式地转换数据类型，最常见的就
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/10/快乐暑假第3天/" data-id="cjymys20a000hb8uw27put73w" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/10/快乐暑假第3天/" data-id="cjyodutc7000i5suwyalrbivi" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1242,7 +1359,7 @@ JavaScript 中有许多操作都会隐式地转换数据类型，最常见的就
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/09/快乐暑假第2天/" data-id="cjymys201000db8uwutqzjymw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/09/快乐暑假第2天/" data-id="cjyodutbv000e5suw9idwlb02" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1330,7 +1447,7 @@ JavaScript 中有许多操作都会隐式地转换数据类型，最常见的就
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/08/快乐暑假第1天/" data-id="cjymys1zq0004b8uwnb1t1ygo" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/08/快乐暑假第1天/" data-id="cjyodutbh00055suw97qvv6iz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1376,6 +1493,10 @@ JavaScript 中有许多操作都会隐式地转换数据类型，最常见的就
       <ul>
         
           <li>
+            <a href="/2019/07/29/快乐暑假第19天——学习nodejs处理两种请求/">快乐暑假第19天——学习nodejs处理两种请求</a>
+          </li>
+        
+          <li>
             <a href="/2019/07/28/快乐暑假第18天——继续学习nodejs/">快乐暑假第18天——继续学习nodejs</a>
           </li>
         
@@ -1389,10 +1510,6 @@ JavaScript 中有许多操作都会隐式地转换数据类型，最常见的就
         
           <li>
             <a href="/2019/07/24/快乐暑假第15天——开始做Bolo/">快乐暑假第15天——开始做Bolo</a>
-          </li>
-        
-          <li>
-            <a href="/2019/07/23/快乐暑假第14天——学习jQuery/">快乐暑假第14天——学习jQuery</a>
           </li>
         
       </ul>
