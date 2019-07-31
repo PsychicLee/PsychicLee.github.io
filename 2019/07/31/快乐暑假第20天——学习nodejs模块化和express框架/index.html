@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Lee&#39;s blogs">
 <meta property="og:description" content="Node.js 模块化模块内部 require - 引入模块  1var http = require(&apos;http&apos;);   exports - 输出  1exports.a = 12;   module.exports - 批量输出  12345module.exports = &amp;#123;    a = 1,    b = 2,    c = 3&amp;#125;;  require 的参数引用自定">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-31T01:26:28.473Z">
+<meta property="og:updated_time" content="2019-07-31T01:28:18.422Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="快乐暑假第20天——学习nodejs模块化和express框架">
 <meta name="twitter:description" content="Node.js 模块化模块内部 require - 引入模块  1var http = require(&apos;http&apos;);   exports - 输出  1exports.a = 12;   module.exports - 批量输出  12345module.exports = &amp;#123;    a = 1,    b = 2,    c = 3&amp;#125;;  require 的参数引用自定">
@@ -101,7 +101,7 @@
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    a = <span class="number">1</span>,</span><br><span class="line">    b = <span class="number">2</span>,</span><br><span class="line">    c = <span class="number">3</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-<h2 id="require-的参数"><a href="#require-的参数" class="headerlink" title="require 的参数"></a>require 的参数</h2><p>引用自定义模块时，一般情况下写成 <figure class="highlight plain"><figcaption><span>后缀可以省略</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">- 如果省略 &quot;./&quot; ，会默认在系统模块中寻找，找不到则报错</span><br><span class="line">- 如果将自定义模块文件放在 node_modules 文件夹里，也可以省略 &quot;./&quot; </span><br><span class="line"></span><br><span class="line">## npm</span><br><span class="line">用来下载模块，会自动解决依赖问题。</span><br><span class="line"></span><br><span class="line">也可以上传自己的模块。</span><br><span class="line"></span><br><span class="line"># Node.js express</span><br><span class="line">express 是非破坏式的，即保留了原生的功能，在此基础上又添加了一些更方便的功能(增强原有的功能)。</span><br><span class="line"></span><br><span class="line">## 使用步骤</span><br><span class="line">1. 创建服务</span><br><span class="line"></span><br><span class="line">```js</span><br><span class="line">var server = express();</span><br></pre></td></tr></table></figure></p>
+<h2 id="require-的参数"><a href="#require-的参数" class="headerlink" title="require 的参数"></a>require 的参数</h2><p>引用自定义模块时，一般情况下写成 <figure class="highlight plain"><figcaption><span>，其中，.js 后缀可以省略</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">- 如果省略 &quot;./&quot; ，会默认在系统模块中寻找，找不到则报错</span><br><span class="line">- 如果将自定义模块文件放在 node_modules 文件夹里，也可以省略 &quot;./&quot; </span><br><span class="line"></span><br><span class="line">## npm</span><br><span class="line">用来下载模块，会自动解决依赖问题。</span><br><span class="line"></span><br><span class="line">也可以上传自己的模块。</span><br><span class="line"></span><br><span class="line"># Node.js express</span><br><span class="line">express 是非破坏式的，即保留了原生的功能，在此基础上又添加了一些更方便的功能(增强原有的功能)。</span><br><span class="line"></span><br><span class="line">## 使用步骤</span><br><span class="line">1. 创建服务</span><br><span class="line"></span><br><span class="line">```js</span><br><span class="line">var server = express();</span><br></pre></td></tr></table></figure></p>
 <ol start="2">
 <li>监听</li>
 </ol>
@@ -126,7 +126,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/31/快乐暑假第20天——学习nodejs模块化和express框架/" data-id="cjyqkl02e00037ouws5ae5w2g" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/31/快乐暑假第20天——学习nodejs模块化和express框架/" data-id="cjyqkn45z0008n8uwrw4r9gk8" class="article-share-link">Share</a>
       
       
     </footer>
